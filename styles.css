@@ -1,0 +1,21 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style untuk seluruh halaman */
+body, html {
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+/* Background image style */
+body {
+    background-image: url('https://pomf2.lain.la/f/m3twagi1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
