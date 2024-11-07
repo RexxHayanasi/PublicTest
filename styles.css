@@ -66,14 +66,19 @@ body {
 
 /* Profile container styles */
 #profile-container {
-    display: none; /* Sembunyikan hingga loading selesai */
-    position: fixed;
-    top: 40%; /* Posisi di atas tengah */
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 35%; /* Posisi di atas tengah */
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1000;
+}
+
+/* Menyembunyikan profil sampai loading selesai */
+.hidden {
+    display: none;
 }
 
 /* Profile image style */
