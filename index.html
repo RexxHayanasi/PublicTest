@@ -13,7 +13,7 @@
     </div>
 
     <!-- Gambar Profil -->
-    <div id="profile-container" class="hidden">
+    <div id="profile-container">
         <img src="https://pomf2.lain.la/f/3aufol1l.jpg" alt="Profil RexxzynXD" class="profile-image">
     </div>
 </body>
@@ -23,9 +23,9 @@
         const loadingScreen = document.getElementById("loading-screen");
         loadingScreen.classList.add("fade-out");
         setTimeout(() => {
-            loadingScreen.style.display = "none";
-            document.getElementById("profile-container").classList.remove("hidden");
-            document.getElementById("profile-container").classList.add("slide-in");
+            loadingScreen.style.display = "none"; // Sembunyikan loading screen setelah fade-out
+            document.getElementById("profile-container").classList.remove("hidden"); // Hapus kelas hidden
+            document.getElementById("profile-container").classList.add("slide-in"); // Tambahkan animasi slide-in
         }, 1000); // Waktu tunggu agar animasi fade-out selesai
     });
 </script>
