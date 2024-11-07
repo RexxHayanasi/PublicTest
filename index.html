@@ -13,17 +13,18 @@
     </div>
 
     <!-- Gambar Profil -->
-    <div id="profile-container">
+    <div id="profile-container" class="hidden">
         <img src="https://pomf2.lain.la/f/3aufol1l.jpg" alt="Profil RexxzynXD" class="profile-image">
     </div>
 </body>
 <script>
-    // Script untuk menghilangkan loading screen saat halaman selesai dimuat
+    // Script untuk menghilangkan loading screen dan menampilkan profil setelah halaman selesai dimuat
     window.addEventListener("load", function() {
         const loadingScreen = document.getElementById("loading-screen");
         loadingScreen.classList.add("fade-out");
         setTimeout(() => {
             loadingScreen.style.display = "none";
+            document.getElementById("profile-container").classList.remove("hidden");
             document.getElementById("profile-container").classList.add("slide-in");
         }, 1000); // Waktu tunggu agar animasi fade-out selesai
     });
