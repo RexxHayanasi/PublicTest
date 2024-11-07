@@ -12,7 +12,7 @@
         <div class="loading-text">Memuat...</div>
     </div>
 
-    <!-- Gambar profil -->
+    <!-- Gambar Profil -->
     <div id="profile-container">
         <img src="https://pomf2.lain.la/f/3aufol1l.jpg" alt="Profil RexxzynXD" class="profile-image">
     </div>
@@ -24,7 +24,7 @@
         loadingScreen.classList.add("fade-out");
         setTimeout(() => {
             loadingScreen.style.display = "none";
-            document.getElementById("profile-container").style.display = "flex";
+            document.getElementById("profile-container").classList.add("slide-in");
         }, 1000); // Waktu tunggu agar animasi fade-out selesai
     });
 </script>
