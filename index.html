@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>RexxzynXD Website</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading screen -->
+    <div id="loading-screen">
+        <div class="loading-text">Memuat...</div>
+    </div>
+
+    <!-- Konten utama halaman akan tampil setelah loading selesai -->
 </body>
+<script>
+    // Script untuk menghilangkan loading screen saat halaman selesai dimuat
+    window.addEventListener("load", function() {
+        const loadingScreen = document.getElementById("loading-screen");
+        loadingScreen.classList.add("fade-out");
+        setTimeout(() => {
+            loadingScreen.style.display = "none";
+        }, 1000); // Waktu tunggu agar animasi fade-out selesai
+    });
+</script>
 </html>
