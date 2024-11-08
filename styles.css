@@ -20,6 +20,156 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Button Menu */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    font-size: 24px;
+    background: none;
+    border: none;
+    color: #333;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: -250px; /* Tersembunyi di awal */
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background-image: url('https://pomf2.lain.la/f/wb4tv3nf.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    transition: left 0.3s ease;
+    padding-top: 60px;
+    z-index: 999;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Ubah untuk menempatkan elemen dari atas */
+    align-items: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    width: 100%; /* Pastikan ul mengisi lebar sidebar */
+}
+
+.sidebar ul li {
+    padding: 15px; /* Tambah jarak vertikal */
+    text-align: center;
+    width: 100%; /* Mengisi lebar penuh */
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block; /* Pastikan link memenuhi seluruh area li */
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px; /* Tambahkan sudut melengkung saat hover */
+}
+
+.sidebar-logo {
+    width: 120px; /* Ukuran logo */
+    margin-top: auto; /* Menggeser logo ke bawah */
+    opacity: 0.9; /* Transparansi sedikit */
+}
+
+/* Tampilkan sidebar saat kelas "active" ditambahkan */
+.sidebar.active {
+    left: 0;
+}
+
+/* Profile container styles */
+#profile-container {
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease, visibility 1s ease;
+    text-align: center;
+}
+
+#profile-name {
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: white;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Styling untuk gambar profil */
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Item donasi di bawah nama profil */
+.donate_item {
+    display: flex;
+    align-items: center;
+    background-color: #eee;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 20px; /* Jarak dari nama profil */
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+}
+
+.donate_item_image {
+    flex: 0 0 auto;
+    margin-right: 15px;
+}
+
+.donate_item_image img {
+    width: 35px;
+    height: 35px;
+    border-radius: 6px;
+}
+
+.donate_item_link {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.donate_item_link a {
+    color: #202124;
+    text-decoration: none;
+}
+
+/* Animasi slide-in untuk profile */
+@keyframes slideIn {
+    0% {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+}
+
+.slide-in {
+    animation: slideIn 1s ease-out forwards;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
 /* Loading screen styles */
 #loading-screen {
     position: fixed;
@@ -32,7 +182,6 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    opacity: 1;
 }
 
 .loading-text {
@@ -41,7 +190,6 @@ body {
     animation: blink 1s infinite;
 }
 
-/* Animasi blink untuk teks loading */
 @keyframes blink {
     0%, 100% {
         opacity: 1;
@@ -51,168 +199,56 @@ body {
     }
 }
 
-/* Menghilangkan loading screen */
-.fade-out {
-    animation: fadeOut 1s forwards;
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
-/* Profile container styles */
-#profile-container {
-    position: fixed;
-    top: 35%; 
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-    opacity: 0; 
-    visibility: hidden; 
-    transition: opacity 1s ease, visibility 1s ease;
-}
-
-/* Menyembunyikan profil sebelum loading selesai */
-.hidden {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* Profile image style */
-.profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    border: 4px solid white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Styling untuk teks nama profil */
-#profile-name {
-    margin-top: 15px;
-    font-size: 1.5em;
+/* Typing text styles */
+#typing-text {
+    font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+    font-size: 2em; /* Ukuran font lebih besar */
     color: white;
     text-align: center;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Bayangan teks */
-}
-/* Link Border*/
-.donate_item {
-  display:flex;
-  align-items:center;
-  background-color:#eee;
-  border-radius:12px;
-  padding:15px;
-  position:relative;
-  font-family:'Roboto', sans-serif;
-}
-.donate_item:not(:last-child) {
-  margin-bottom:15px;
-}
-.donate_item:after {
-  content:'';
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z' fill='%233e3f43'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;
-  width:24px;
-  height:24px;
-  margin-left:auto;
-}
-.donate_item:hover {
-  box-shadow:inset 0 0 0 99999px rgb(0 0 0 / 15%);
-}
-.donate_item_image {
-  flex:0 0 auto;
-  line-height:0;
-  margin-right:15px;
-}
-.donate_item_image img {
-  width:35px;
-  height:35px;
-  border-radius:6px;
-}
-.donate_item_link {
-  margin-right:15px;
-}
-.donate_item_link a {
-  font-size:16px;
-  font-weight:700;
-  color:#202124;
-  text-decoration:none;
-}
-.donate_item_link a:before {
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  bottom:0;
-  left:0;
-  z-index:1;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid white; /* Kursor kedip */
+    margin-top: 20px;
+    visibility: hidden;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    animation: typing 6s steps(60, end) 1s forwards;
 }
 
-/* Animasi slide-in */
-@keyframes slideIn {
+/* Animasi mengetik */
+@keyframes typing {
     0% {
-        transform: translate(-50%, 100%);
-        opacity: 0;
+        width: 0;
     }
     100% {
-        transform: translate(-50%, -50%);
-        opacity: 1;
+        width: 100%;
     }
 }
 
-/* Menambahkan animasi slide-in pada gambar profil */
-.slide-in {
-    animation: slideIn 1s ease-out forwards;
-    opacity: 1 !important;
-    visibility: visible !important;
+/* Animasi kedipan kursor */
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: white;
+    }
 }
 
- #typing-text {
-            font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
-            font-size: 2em; /* Ukuran font lebih besar */
-            color: white;
-            text-align: center;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid white; /* Kursor kedip */
-            margin-top: 20px;
-            visibility: hidden;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Bayangan teks */
+/* Garis horizontal yang lebih cantik di bawah teks */
+#typing-text::after {
+    content: "";
+    display: block;
+    width: 60%;
+    margin: 20px auto;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.6);
+    animation: line-grow 6s ease-out forwards;
+}
 
-            /* Animasi mengetik sekali */
-            animation: typing 6s steps(60, end) 1s forwards;
-        }
-
-        /* Animasi mengetik */
-        @keyframes typing {
-            0% { width: 0; }
-            100% { width: 100%; } /* Selesai mengetik pada akhir animasi */
-        }
-
-        /* Animasi kedipan kursor */
-        @keyframes blink-caret {
-            from, to { border-color: transparent; }
-            50% { border-color: white; }
-        }
-
-        /* Garis horizontal yang lebih cantik di bawah teks */
-        #typing-text::after {
-            content: "";
-            display: block;
-            width: 60%; /* Lebar garis */
-            margin: 20px auto; /* Posisikan garis di bawah teks */
-            border-bottom: 3px solid rgba(255, 255, 255, 0.6); /* Warna garis yang lebih halus */
-            animation: line-grow 6s ease-out forwards;
-        }
-
-        /* Animasi pertumbuhan garis */
-        @keyframes line-grow {
-            0% { width: 0%; }
-            100% { width: 60%; }
-        }
+@keyframes line-grow {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 60%;
+    }
+}
