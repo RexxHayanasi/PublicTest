@@ -27,11 +27,12 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8); /* Warna background loading screen */
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    opacity: 1;
 }
 
 .loading-text {
@@ -50,7 +51,7 @@ body {
     }
 }
 
-/* Animasi fade-out untuk loading screen */
+/* Menghilangkan loading screen */
 .fade-out {
     animation: fadeOut 1s forwards;
 }
@@ -67,12 +68,12 @@ body {
 /* Profile container styles */
 #profile-container {
     position: fixed;
-    top: 35%; /* Posisi di atas tengah */
+    top: 35%; 
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    opacity: 0; /* Mulai dengan opacity 0 */
-    visibility: hidden; /* Mulai dengan tidak terlihat */
+    opacity: 0; 
+    visibility: hidden; 
     transition: opacity 1s ease, visibility 1s ease;
 }
 
@@ -86,19 +87,29 @@ body {
 .profile-image {
     width: 150px;
     height: 150px;
-    border-radius: 50%; /* Membuat gambar bulat */
-    border: 4px solid white; /* Tambahkan border putih */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Tambahkan bayangan */
+    border-radius: 50%;
+    border: 4px solid white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Styling untuk teks nama profil */
+#profile-name {
+    margin-top: 15px;
+    font-size: 1.5em;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Bayangan teks */
 }
 
 /* Animasi slide-in */
 @keyframes slideIn {
     0% {
-        transform: translate(-50%, 100%); /* Mulai dari bawah */
+        transform: translate(-50%, 100%);
         opacity: 0;
     }
     100% {
-        transform: translate(-50%, -50%); /* Bergerak ke posisi tengah */
+        transform: translate(-50%, -50%);
         opacity: 1;
     }
 }
@@ -109,3 +120,47 @@ body {
     opacity: 1 !important;
     visibility: visible !important;
 }
+
+ #typing-text {
+            font-family: 'Roboto', sans-serif; /* Menggunakan font Roboto */
+            font-size: 2em; /* Ukuran font lebih besar */
+            color: white;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid white; /* Kursor kedip */
+            margin-top: 20px;
+            visibility: hidden;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Bayangan teks */
+
+            /* Animasi mengetik sekali */
+            animation: typing 6s steps(60, end) 1s forwards;
+        }
+
+        /* Animasi mengetik */
+        @keyframes typing {
+            0% { width: 0; }
+            100% { width: 100%; } /* Selesai mengetik pada akhir animasi */
+        }
+
+        /* Animasi kedipan kursor */
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+
+        /* Garis horizontal yang lebih cantik di bawah teks */
+        #typing-text::after {
+            content: "";
+            display: block;
+            width: 60%; /* Lebar garis */
+            margin: 20px auto; /* Posisikan garis di bawah teks */
+            border-bottom: 3px solid rgba(255, 255, 255, 0.6); /* Warna garis yang lebih halus */
+            animation: line-grow 6s ease-out forwards;
+        }
+
+        /* Animasi pertumbuhan garis */
+        @keyframes line-grow {
+            0% { width: 0%; }
+            100% { width: 60%; }
+        }
