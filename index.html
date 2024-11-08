@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>RexxzynXD Website</title>
+    
+    <!-- Menambahkan Font Awesome untuk ikon menu -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+    <!-- Tombol Menu -->
+    <button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+
+    <!-- Sidebar Menu -->
+    <div class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="https://archavecommunity.vercel.app/tos.html" class="box">ToS ArchavCommunity</a></li>
+            <li><a href="https://archavecommunitylink.vercel.app/" class="box">Social Link</a></li>
+            <li><a href="https://archavecommunity.vercel.app/Archavegallery.html" class="box">Gallery Archave</a></li>
+            <li><a href="https://archavecommunity.vercel.app/marketplace.html" class="box">Marketplace</a></li>
+        </ul>
+        <img src="src/aclogo.png" alt="Logo" class="sidebar-logo">
+    </div>
+
     <!-- Loading screen -->
     <div id="loading-screen">
         <div class="loading-text">Memuat...</div>
     </div>
 
-   <div id="profile-container" class="hidden">
+    <!-- Profile Container -->
+    <div id="profile-container" class="hidden">
         <img src="https://pomf2.lain.la/f/3aufol1l.jpg" alt="Profil RexxzynXD" class="profile-image">
-        <!-- Teks di bawah gambar profil -->
         <div id="profile-name">RexxzynXD</div>
-        
+
         <!-- Item donasi di bawah nama profil -->
         <div class="donate_item saweria">
             <div class="donate_item_image">
@@ -34,4 +53,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
