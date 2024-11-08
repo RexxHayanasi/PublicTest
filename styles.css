@@ -101,6 +101,58 @@ body {
     font-weight: bold;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Bayangan teks */
 }
+/* Link Border*/
+.donate_item {
+  display:flex;
+  align-items:center;
+  background-color:#eee;
+  border-radius:12px;
+  padding:15px;
+  position:relative;
+  font-family:'Roboto', sans-serif;
+}
+.donate_item:not(:last-child) {
+  margin-bottom:15px;
+}
+.donate_item:after {
+  content:'';
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z' fill='%233e3f43'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;
+  width:24px;
+  height:24px;
+  margin-left:auto;
+}
+.donate_item:hover {
+  box-shadow:inset 0 0 0 99999px rgb(0 0 0 / 15%);
+}
+.donate_item_image {
+  flex:0 0 auto;
+  line-height:0;
+  margin-right:15px;
+}
+.donate_item_image img {
+  width:35px;
+  height:35px;
+  border-radius:6px;
+}
+.donate_item_link {
+  margin-right:15px;
+}
+.donate_item_link a {
+  font-size:16px;
+  font-weight:700;
+  color:#202124;
+  text-decoration:none;
+}
+.donate_item_link a:before {
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index:1;
+}
 
 /* Animasi slide-in */
 @keyframes slideIn {
