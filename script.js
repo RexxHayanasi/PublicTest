@@ -2,6 +2,7 @@ window.addEventListener("load", function() {
     const loadingScreen = document.getElementById("loading-screen");
     const profileContainer = document.getElementById("profile-container");
     const typingText = document.getElementById("typing-text");
+    const menuBtn = document.getElementById("menuBtn");
 
     // Mulai animasi fade-out untuk loading screen
     loadingScreen.classList.add("fade-out");
@@ -18,14 +19,11 @@ window.addEventListener("load", function() {
         setTimeout(() => {
             typingText.classList.remove("hidden");
             typingText.style.visibility = "visible"; // Pastikan teks terlihat
+
+            // Setelah animasi mengetik selesai, tampilkan tombol menu
+            setTimeout(() => {
+                menuBtn.style.visibility = "visible"; // Menampilkan tombol menu setelah animasi teks selesai
+            }, 6000); // Sesuaikan dengan durasi animasi mengetik
         }, 1000); // Tunda teks sambutan agar muncul setelah profil
     }, 1000); // Sesuaikan dengan durasi animasi fade-out di CSS
-
-    // Fitur Sidebar: buka dan tutup sidebar saat tombol menu diklik
-    const menuBtn = document.getElementById("menuBtn");
-    const sidebar = document.getElementById("sidebar");
-
-    menuBtn.addEventListener("click", function() {
-        sidebar.classList.toggle("active");
-    });
 });
