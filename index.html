@@ -5,28 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>RexxzynXD Website</title>
     <link rel="stylesheet" href="styles.css">
+     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+   
     <!-- Loading screen -->
     <div id="loading-screen">
         <div class="loading-text">Memuat...</div>
     </div>
 
-    <!-- Gambar Profil -->
-    <div id="profile-container">
+   <div id="profile-container" class="hidden">
         <img src="https://pomf2.lain.la/f/3aufol1l.jpg" alt="Profil RexxzynXD" class="profile-image">
+        <!-- Teks di bawah gambar profil -->
+        <div id="profile-name">RexxzynXD</div>
     </div>
+
+    <!-- Teks sambutan dengan animasi mengetik -->
+    <div id="typing-text" class="hidden">Selamat datang!</div>
+
+    <script src="script.js"></script>
 </body>
-<script>
-    // Script untuk menghilangkan loading screen dan menampilkan profil setelah halaman selesai dimuat
-    window.addEventListener("load", function() {
-        const loadingScreen = document.getElementById("loading-screen");
-        loadingScreen.classList.add("fade-out");
-        setTimeout(() => {
-            loadingScreen.style.display = "none"; // Sembunyikan loading screen setelah fade-out
-            document.getElementById("profile-container").classList.remove("hidden"); // Hapus kelas hidden
-            document.getElementById("profile-container").classList.add("slide-in"); // Tambahkan animasi slide-in
-        }, 1000); // Waktu tunggu agar animasi fade-out selesai
-    });
-</script>
 </html>
