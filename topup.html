@@ -7,85 +7,127 @@
     <link rel="stylesheet" href="stylestopup.css">
 </head>
 <body>
-
     <!-- Header Section -->
     <header class="header">
         <div class="header-left">
-            <button class="menu-btn">&#9776;</button>
+            <button class="menu-btn">☰</button>
             <img src="logo.png" alt="RexxzySTORE Logo" class="logo">
         </div>
         <div class="header-right">
-            <input type="text" class="search-bar" placeholder="Search...">
-            <select id="language-select" class="language-select">
-                <option value="ID">ID</option>
-                <option value="EN">EN</option>
+            <input type="text" placeholder="Search..." class="search-bar">
+            <select class="language-select" id="language-select">
+                <option value="id">ID</option>
+                <option value="en">EN</option>
             </select>
         </div>
     </header>
 
     <!-- Banner Section -->
     <section class="banner">
-        <img src="banner.jpg" alt="Banner">
+        <img src="banner.jpg" alt="Top-Up Game Banner">
     </section>
 
     <!-- Recommendations Section -->
     <section class="recommendations">
-        <h2 data-en="Recommendations" data-id="Rekomendasi">Rekomendasi</h2>
-        <p data-en="Here are some recommended products for you." data-id="Berikut adalah beberapa produk yang kami rekomendasikan untuk kamu.">Berikut adalah beberapa produk yang kami rekomendasikan untuk kamu.</p>
-        <!-- Product Cards -->
+        <h2 data-en="✨ Recommendations" data-id="✨ Rekomendasi">✨ Rekomendasi</h2>
+        <p data-en="Here are some products we recommend for you." data-id="Berikut adalah beberapa produk yang kami rekomendasikan untuk kamu.">
+            Berikut adalah beberapa produk yang kami rekomendasikan untuk kamu.
+        </p>
         <div class="product-card">
-            <img src="mobile-legends.jpg" alt="Mobile Legends">
+            <img src="mobile-legends.png" alt="Mobile Legends">
             <div class="product-info">
-                <h3 data-en="Mobile Legends" data-id="Mobile Legends">Mobile Legends</h3>
-                <p data-en="Top Up Diamond" data-id="Isi Ulang Diamond">Isi Ulang Diamond</p>
+                <h3>Mobile Legends</h3>
+                <p data-en="Top Up Diamond" data-id="Top Up Diamond">Top Up Diamond</p>
             </div>
         </div>
     </section>
 
     <!-- Popular Now Section -->
     <section class="popular-now">
-        <h2 data-en="Popular Now!" data-id="Populer Sekarang!">Populer Sekarang!</h2>
-        <p data-en="Here are some of the most popular products right now." data-id="Berikut adalah beberapa produk yang paling populer saat ini.">Berikut adalah beberapa produk yang paling populer saat ini.</p>
-        <!-- Product Cards -->
-        <div class="product-card">
-            <img src="pubg.jpg" alt="PUBG Mobile">
-            <div class="product-info">
-                <h3 data-en="PUBG Mobile" data-id="PUBG Mobile">PUBG Mobile</h3>
-                <p data-en="Tencent Games" data-id="Tencent Games">Tencent Games</p>
+        <h2 data-en="🔥 Popular Now!" data-id="🔥 Populer Sekarang!">🔥 Populer Sekarang!</h2>
+        <p data-en="Here are some products that are currently very popular." data-id="Berikut adalah beberapa produk yang paling populer saat ini.">
+            Berikut adalah beberapa produk yang paling populer saat ini.
+        </p>
+        <div class="popular-products">
+            <div class="product-card">
+                <img src="mobile-legends.png" alt="Mobile Legends">
+                <div class="product-info">
+                    <h3>Mobile Legends</h3>
+                    <p data-en="Top Up Diamond" data-id="Top Up Diamond">Top Up Diamond</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="pubg.png" alt="PUBG Mobile">
+                <div class="product-info">
+                    <h3>PUBG Mobile</h3>
+                    <p data-en="Tencent Games" data-id="Tencent Games">Tencent Games</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="free-fire.png" alt="Free Fire MAX">
+                <div class="product-info">
+                    <h3>Free Fire MAX</h3>
+                    <p data-en="Garena" data-id="Garena">Garena</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="honor-of-kings.png" alt="Honor of Kings">
+                <div class="product-info">
+                    <h3>Honor of Kings</h3>
+                    <p data-en="Tencent Games" data-id="Tencent Games">Tencent Games</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Category Buttons -->
-    <div class="categories">
-        <button data-en="Top Up" data-id="Isi Ulang">Isi Ulang</button>
+    <!-- Category Tabs -->
+    <nav class="categories">
+        <button data-en="Top Up" data-id="Top Up">Top Up</button>
         <button data-en="Voucher" data-id="Voucher">Voucher</button>
-        <button data-en="Pulsa" data-id="Pulsa">Pulsa</button>
+        <button data-en="Balance" data-id="Pulsa">Pulsa</button>
         <button data-en="Entertainment" data-id="Hiburan">Hiburan</button>
         <button data-en="Bills" data-id="Tagihan">Tagihan</button>
-    </div>
+    </nav>
+
+    <!-- Game Grid Section -->
+    <section class="game-grid">
+        <div class="game-item">
+            <img src="game1.png" alt="Mobile Legends">
+            <p data-en="Mobile Legends" data-id="Mobile Legends">Mobile Legends</p>
+        </div>
+        <div class="game-item">
+            <img src="game2.png" alt="PUBG Mobile">
+            <p data-en="PUBG Mobile" data-id="PUBG Mobile">PUBG Mobile</p>
+        </div>
+        <div class="game-item">
+            <img src="game3.png" alt="Free Fire MAX">
+            <p data-en="Free Fire MAX" data-id="Free Fire MAX">Free Fire MAX</p>
+        </div>
+        <!-- Additional game items... -->
+    </section>
 
     <!-- JavaScript for Language Switching -->
     <script>
+        // Select the language dropdown
         const languageSelect = document.getElementById('language-select');
         
-        // Function to change the language based on selection
+        // Function to change the text content based on selected language
         function changeLanguage() {
-            const selectedLang = languageSelect.value; // Get selected language (EN or ID)
-            const elementsToTranslate = document.querySelectorAll('[data-en]');
-            
+            const selectedLang = languageSelect.value; // Get the selected language (EN or ID)
+            const elementsToTranslate = document.querySelectorAll('[data-en]'); // Select all elements with translations
+
+            // Loop through each element to update text
             elementsToTranslate.forEach(el => {
-                // Change text based on the selected language
-                el.textContent = el.getAttribute(`data-${selectedLang.toLowerCase()}`);
+                // Update text based on the selected language
+                el.textContent = el.getAttribute(`data-${selectedLang}`);
             });
         }
-        
-        // Event listener to detect language change
+
+        // Event listener to handle language change
         languageSelect.addEventListener('change', changeLanguage);
-        
+
         // Set initial language on page load
         document.addEventListener('DOMContentLoaded', changeLanguage);
     </script>
-
 </body>
 </html>
