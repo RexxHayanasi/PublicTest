@@ -254,6 +254,29 @@
           overlay.classList.add('hidden');
         }
       });
+      document.getElementById('topup-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const game = document.getElementById('game').value;
+    const amount = document.getElementById('amount').value;
+
+    // Kirim permintaan top-up ke API
+    fetch('https://api.apigames.com/topup', { // Gantilah dengan endpoint yang sesuai
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ game, amount }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Top-Up Berhasil: ' + data.message); // Tampilkan pesan sukses
+    })
+    .catch(error => {
+        console.error('Error during top-up:', error);
+        alert('Terjadi kesalahan, silakan coba lagi.');
+    });
+});
     </script>
 </body>
 
