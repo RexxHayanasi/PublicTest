@@ -1,283 +1,171 @@
-<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GameStore - Top Up Games</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="icon" type="image/x-icon" href="https://pomf2.lain.la/f/6zjgu926.jpg">
-   <link rel="stylesheet" href="stylestopup.css"> 
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElainaBot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
+        }
 
-<body class="bg-gray-900 text-white min-h-screen">
-  <!-- Sidebar -->
-  <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-gray-800 transform -translate-x-full sidebar-animation z-50">
-    <div class="p-4">
-      <div class="flex justify-between items-center mb-8">
-        <button onclick="toggleSidebar()" class="text-gray-400 hover:text-white">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
 
-      <!-- Sidebar Menu -->
-      <div class="space-y-4">
-        <div class="p-4 hover:bg-gray-700 rounded-lg transition-all duration-300">
-          <a href="#" class="flex items-center space-x-3">
-            <i class="fas fa-home"></i>
-            <span>Home</span>
-          </a>
-        </div>
-        <div class="p-4 hover:bg-gray-700 rounded-lg transition-all duration-300">
-          <a href="#" class="flex items-center space-x-3">
-            <i class="fas fa-gamepad"></i>
-            <span>Games</span>
-          </a>
-        </div>
-        <div class="p-4 hover:bg-gray-700 rounded-lg transition-all duration-300">
-          <a href="#" class="flex items-center space-x-3">
-            <i class="fas fa-history"></i>
-            <span>Transaction History</span>
-          </a>
-        </div>
-        <div class="p-4 hover:bg-gray-700 rounded-lg transition-all duration-300">
-          <a href="#" class="flex items-center space-x-3">
-            <i class="fas fa-wallet"></i>
-            <span>Wallet</span>
-          </a>
-        </div>
-        <div class="p-4 hover:bg-gray-700 rounded-lg transition-all duration-300">
-          <a href="#" class="flex items-center space-x-3">
-            <i class="fas fa-headset"></i>
-            <span>Support</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
+        .slide-down {
+            animation: slideDown 0.5s ease-in-out;
+        }
 
-  <!-- Overlay -->
-  <div id="overlay" class="fixed inset-0 bg-black opacity-50 hidden z-40" onclick="toggleSidebar()"></div>
-
-  <!-- Navigation -->
-  <nav class="bg-gray-800 shadow-lg fixed w-full top-0 z-30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between items-center h-16">
-        <div class="flex items-center space-x-4">
-          <!-- Hamburger Menu -->
-          <button onclick="toggleSidebar()" class="text-gray-400 hover:text-white focus:outline-none">
-            <i class="fas fa-bars text-xl"></i>
-          </button>
-          <span class="text-2xl font-bold text-blue-500">GameStore</span>
-        </div>
-
-        <!-- Desktop Navigation Links -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="https://www.rexxzynxd.my.id/" class="nav-link text-gray-300 hover:text-white transition-colors duration-300">Home</a>
-          <a href="#" class="nav-link text-gray-300 hover:text-white transition-colors duration-300">Games</a>
-          <a href="#" class="nav-link text-gray-300 hover:text-white transition-colors duration-300">About</a>
-          <a href="#" class="nav-link text-gray-300 hover:text-white transition-colors duration-300">Support</a>
-        </div>
-
-        <div class="flex items-center space-x-4">
-          <div class="relative">
-            <input type="text" placeholder="Search games..." class="bg-gray-700 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full md:w-auto">
-          </div>
-          <div class="relative group">
-            <button class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg transition duration-300 flex items-center">
-              <i class="fas fa-user mr-2"></i>
-              <span>Account</span>
-            </button>
-            <!-- Dropdown Menu -->
-            <div class="absolute right-0 mt-2 w-48 bg-gray-800 rounded-lg shadow-xl py-2 hidden group-hover:block dropdown-animation">
-              <a href="#" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">Profile</a>
-              <a href="#" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">Settings</a>
-              <a href="#" class="block px-4 py-2 text-gray-300 hover:bg-gray-700 hover:text-white">Logout</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </nav>
-
-  <!-- Main Content with Padding Top for Fixed Navbar -->
-    <div class="pt-16">
-    <!-- Hero Section -->
-    <div class="relative overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600 h-80">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-center">
-        <div class="text-center animate-fadeIn">
-          <h1 class="text-4xl md:text-5xl font-bold mb-4">Top Up Games Instantly</h1>
-          <p class="text-xl text-gray-200 mb-8">Safe, Fast, and Trusted Payment Method</p>
-          <button class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition duration-300 transform hover:scale-105">
-            Get Started
-          </button>
-        </div>
-      </div>
-    </div>
-</div>
-
-
-      <!-- Animated Background Elements -->
-      <div class="absolute inset-0 overflow-hidden pointer-events-none">
-        <div class="absolute w-20 h-20 bg-white opacity-10 rounded-full -top-10 -left-10 animate-ping"></div>
-        <div class="absolute w-32 h-32 bg-blue-400 opacity-10 rounded-full top-40 right-20 animate-pulse"></div>
-      </div>
-    </div>
-
-    <!-- Popular Games Section -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h2 class="text-2xl font-bold mb-8">Popular Games</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        <!-- Game Card 1 -->
-        <div class="bg-gray-800 rounded-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-          <img src="https://xcashshop.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2F8ea28123e3b44e7cbd4cf5ad976f428b%3Axc-assets%2Fmedia%2Ffile-1725734537-6gm86ga8-20240907224852-1.jpg&w=1080&q=75" alt="Mobile Legends" class="w-full h-40 object-cover">
-          <div class="p-4">
-            <h3 class="font-bold mb-2">Mobile Legends</h3>
-            <p class="text-gray-400 text-sm mb-4">Top Up Diamonds</p>
-            <button class="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded-lg transition duration-300">
-              Top Up Now
-            </button>
-          </div>
-        </div>
-
-        <!-- Game Card 2 -->
-        <div class="bg-gray-800 rounded-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-          <img src="https://xcashshop.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2F8ea28123e3b44e7cbd4cf5ad976f428b%3Axc-assets%2Fmedia%2Ffile-1703496069-ip1u16qa-03-pubg.png&w=1080&q=75" alt="PUBG Mobile" class="w-full h-40 object-cover">
-          <div class="p-4">
-            <h3 class="font-bold mb-2">PUBG Mobile</h3>
-            <p class="text-gray-400 text-sm mb-4">Top Up UC</p>
-            <button class="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded-lg transition duration-300">
-              Top Up Now
-            </button>
-          </div>
-        </div>
-
-        <!-- Game Card 3 -->
-        <div class="bg-gray-800 rounded-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-          <img src="https://xcashshop.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2F8ea28123e3b44e7cbd4cf5ad976f428b%3Axc-assets%2Fmedia%2Ffile-1703496066-2f0mc2i1-02-ff.png&w=1080&q=75" alt="Free Fire MAX" class="w-full h-40 object-cover">
-          <div class="p-4">
-            <h3 class="font-bold mb-2">Free Fire MAX</h3>
-            <p class="text-gray-400 text-sm mb-4">Top Up Diamonds</p>
-            <button class="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded-lg transition duration-300">
-              Top Up Now
-            </button>
-          </div>
-        </div>
-
-        <!-- Game Card 4 -->
-        <div class="bg-gray-800 rounded-xl overflow-hidden hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
-          <img src="https://xcashshop.com/_next/image?url=https%3A%2F%2Fsin1.contabostorage.com%2F8ea28123e3b44e7cbd4cf5ad976f428b%3Axc-assets%2Fmedia%2Ffile-1715793678-mtlj5jvm-honor-of-kings-2.jpg&w=1080&q=75" alt="Honor of Kings" class="w-full h-40 object-cover">
-          <div class="p-4">
-            <h3 class="font-bold mb-2">Honor of Kings</h3>
-            <p class="text-gray-400 text-sm mb-4">Top Up Crystals</p>
-            <button class="w-full bg-blue-600 hover:bg-blue-700 py-2 rounded-lg transition duration-300">
-              Top Up Now
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Categories Section -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
-        <button class="bg-gray-800 hover:bg-gray-700 py-3 rounded-lg transition duration-300">
-          <i class="fas fa-coins mr-2"></i>Top Up
-        </button>
-        <button class="bg-gray-800 hover:bg-gray-700 py-3 rounded-lg transition duration-300">
-          <i class="fas fa-ticket-alt mr-2"></i>Voucher
-        </button>
-        <button class="bg-gray-800 hover:bg-gray-700 py-3 rounded-lg transition duration-300">
-          <i class="fas fa-mobile-alt mr-2"></i>Pulsa
-        </button>
-        <button class="bg-gray-800 hover:bg-gray-700 py-3 rounded-lg transition duration-300">
-          <i class="fas fa-gamepad mr-2"></i>Games
-        </button>
-        <button class="bg-gray-800 hover:bg-gray-700 py-3 rounded-lg transition duration-300">
-          <i class="fas fa-tags mr-2"></i>Tagihan
-        </button>
-      </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 mt-12 py-8">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div>
-            <h3 class="text-xl font-bold mb-4">GameStore</h3>
-            <p class="text-gray-400">Your trusted game top-up destination</p>
-          </div>
-          <div>
-    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-    <p class="text-gray-400">
-        Email: <a href="mailto:support@gamestore.com" class="text-blue-400 hover:underline">support@gamestore.com</a>
-    </p>
-    <p class="text-gray-400">
-        Phone: <a href="https://wa.me/6285282530851" target="_blank" class="text-blue-400 hover:underline">+62 852-8253-0851</a>
-    </p>
-          </div>
-          <div>
-            <h3 class="text-xl font-bold mb-4">Follow Us</h3>
-            <div class="flex space-x-4">
-              <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
-              <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
-              <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-          <p>&copy; 2024 GameStore. All rights reserved.</p>
-        </div>
-      </div>
-    </footer>
-
+        @keyframes slideDown {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
     <script>
-      function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
-
-        if (sidebar.classList.contains('-translate-x-full')) {
-          sidebar.classList.remove('-translate-x-full');
-          overlay.classList.remove('hidden');
-        } else {
-          sidebar.classList.add('-translate-x-full');
-          overlay.classList.add('hidden');
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
         }
-      }
 
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          const sidebar = document.getElementById('sidebar');
-          const overlay = document.getElementById('overlay');
-          sidebar.classList.add('-translate-x-full');
-          overlay.classList.add('hidden');
+        function toggleAnswer(id) {
+            const answer = document.getElementById(id);
+            answer.classList.toggle('hidden');
+            answer.classList.toggle('slide-down');
         }
-      });
-      document.getElementById('topup-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const game = document.getElementById('game').value;
-    const amount = document.getElementById('amount').value;
-
-    // Kirim permintaan top-up ke API
-    fetch('https://api.apigames.com/topup', { // Gantilah dengan endpoint yang sesuai
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ game, amount }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert('Top-Up Berhasil: ' + data.message); // Tampilkan pesan sukses
-    })
-    .catch(error => {
-        console.error('Error during top-up:', error);
-        alert('Terjadi kesalahan, silakan coba lagi.');
-    });
-});
     </script>
+</head>
+<body class="bg-gray-900 text-white dark:bg-white dark:text-black fade-in">
+    <header class="flex justify-between items-center p-4 bg-gray-800 dark:bg-gray-200">
+        <h1 class="text-xl font-bold">ElainaBot</h1>
+        <div class="flex items-center space-x-4">
+            <button onclick="toggleTheme()" class="bg-gray-700 p-2 rounded-full dark:bg-gray-300">
+                <i class="fas fa-toggle-on text-blue-500 dark:text-gray-700"></i>
+            </button>
+            <button class="text-white dark:text-black">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <main class="flex flex-col items-center text-center p-8">
+        <span class="bg-gray-700 text-sm text-gray-300 py-1 px-3 rounded-full mb-4 dark:bg-gray-300 dark:text-gray-700">BOT WHATSAPP TERBAIK NO #1</span>
+        <h2 class="text-3xl font-bold mb-4">Teman Cerdas di <span class="text-blue-500">WhatsApp</span>-mu</h2>
+        <p class="text-gray-400 mb-8 dark:text-gray-600">Asisten pribadi yang selalu siap membantu, kapan saja dan di mana saja. Dengan ELAINA BOT, segalanya jadi lebih mudah, mulai dari pekerjaan hingga obrolan santai. Lebih seru dan efisien, hanya dalam genggaman tangan!</p>
+        <div class="flex flex-col space-y-4 mb-12">
+            <a href="https://wa.me/4917269716928" class="bg-blue-600 text-white py-2 px-4 rounded-full flex items-center justify-center space-x-2 hover:bg-blue-700 transition duration-300">
+                <i class="fab fa-whatsapp"></i>
+                <span>Coba Sekarang</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="https://whatsapp.com/channel/0029VapYyKEGufIpsd3Rja2C" class="bg-green-600 text-white py-2 px-4 rounded-full flex items-center justify-center space-x-2 hover:bg-green-700 transition duration-300">
+                <i class="fab fa-whatsapp"></i>
+                <span>Lihat Saluran</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <h3 class="text-2xl font-bold mb-8">Our Features</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bg-gray-800 p-6 rounded-lg text-center dark:bg-gray-200 hover:shadow-lg transition duration-300">
+                <i class="fas fa-comments text-blue-500 text-3xl mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Private Chat</h4>
+                <p class="text-gray-400 dark:text-gray-600">Explore the power of private chat with seamless performance.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg text-center dark:bg-gray-200 hover:shadow-lg transition duration-300">
+                <i class="fas fa-desktop text-blue-500 text-3xl mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">AI</h4>
+                <p class="text-gray-400 dark:text-gray-600">Explore the power of AI with seamless performance.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg text-center dark:bg-gray-200 hover:shadow-lg transition duration-300">
+                <i class="fas fa-download text-blue-500 text-3xl mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Downloader</h4>
+                <p class="text-gray-400 dark:text-gray-600">Download files with ease and efficiency.</p>
+            </div>
+            <div class="bg-gray-800 p-6 rounded-lg text-center dark:bg-gray-200 hover:shadow-lg transition duration-300">
+                <i class="fas fa-exchange-alt text-blue-500 text-3xl mb-4"></i>
+                <h4 class="text-xl font-bold mb-2">Convert</h4>
+                <p class="text-gray-400 dark:text-gray-600">Convert files quickly and easily.</p>
+            </div>
+        </div>
+        <div class="mt-12 text-center">
+            <h4 class="text-2xl font-bold mb-4">TENTANG ELAINA BOT</h4>
+            <p class="text-gray-400 dark:text-gray-600 mb-4">Teman Digital Pintar di WhatsApp!</p>
+            <p class="text-gray-400 dark:text-gray-600 mb-4">ELAINA-BOT siap membantu kamu dalam menjalani berbagai aktivitas harian. Dari tugas-tugas kerja hingga pengaturan jadwal, bot ini menyederhanakan semuanya dengan kemampuan chat cerdasnya, membuat segala hal jadi lebih efisien dan cepat.</p>
+            <p class="text-gray-400 dark:text-gray-600">Dapat diakses kapan saja, dengan layanan yang selalu aktif 24/7, ELAINA-BOT siap memenuhi berbagai kebutuhanmu di mana pun dan kapan pun.</p>
+        </div>
+        <div class="mt-12 text-center">
+            <h4 class="text-2xl font-bold mb-4">Frequently Asked Questions</h4>
+            <div class="text-left w-full max-w-2xl mx-auto">
+                <div class="mb-4">
+                    <button onclick="toggleAnswer('faq1')" class="w-full text-left bg-gray-800 p-4 rounded-lg dark:bg-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300 transition duration-300">
+                        <h5 class="text-lg font-bold">Apa itu ElainaBot?</h5>
+                    </button>
+                    <p id="faq1" class="text-gray-400 dark:text-gray-600 p-4 hidden border border-gray-700 dark:border-gray-300">ElainaBot adalah sebuah platform berbasis AI yang membantu Anda dalam berbagai hal seperti private chat, AI assistance, konversi file, dan juga mendownload konten.</p>
+                </div>
+                <div class="mb-4">
+                    <button onclick="toggleAnswer('faq2')" class="w-full text-left bg-gray-800 p-4 rounded-lg dark:bg-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300 transition duration-300">
+                        <h5 class="text-lg font-bold">Bagaimana cara menggunakan fitur AI di ElainaBot?</h5>
+                    </button>
+                    <p id="faq2" class="text-gray-400 dark:text-gray-600 p-4 hidden border border-gray-700 dark:border-gray-300">Anda dapat mengakses fitur AI di ElainaBot melalui menu 'AI' di sidebar dan mulai berinteraksi dengan AI untuk membantu berbagai kebutuhan Anda.</p>
+                </div>
+                <div class="mb-4">
+                    <button onclick="toggleAnswer('faq3')" class="w-full text-left bg-gray-800 p-4 rounded-lg dark:bg-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300 transition duration-300">
+                        <h5 class="text-lg font-bold">Apakah ElainaBot gratis?</h5>
+                    </button>
+                    <p id="faq3" class="text-gray-400 dark:text-gray-600 p-4 hidden border border-gray-700 dark:border-gray-300">ElainaBot menawarkan beberapa fitur secara gratis. Namun, untuk mengakses fitur premium, Anda harus berlangganan paket premium yang tersedia.</p>
+                </div>
+                <div class="mb-4">
+                    <button onclick="toggleAnswer('faq4')" class="w-full text-left bg-gray-800 p-4 rounded-lg dark:bg-gray-200 hover:bg-gray-700 dark:hover:bg-gray-300 transition duration-300">
+                        <h5 class="text-lg font-bold">Bagaimana cara menghubungi support ElainaBot?</h5>
+                    </button>
+                    <p id="faq4" class="text-gray-400 dark:text-gray-600 p-4 hidden border border-gray-700 dark:border-gray-300">Anda dapat menghubungi tim support ElainaBot melalui email di support@elainabot.xyz atau melalui media sosial yang tertera di bagian hubungi kami.</p>
+                </div>
+            </div>
+        </div>
+        <div class="mt-12 text-center border-t border-gray-700 dark:border-gray-300 pt-8">
+            <h4 class="text-2xl font-bold mb-4">Elaina Bot</h4>
+            <p class="text-gray-400 dark:text-gray-600 mb-4">Sahabat digital Anda yang siap membantu meningkatkan produktivitas dan menyelesaikan berbagai tugas dengan mudah.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+                <div>
+                    <h5 class="text-lg font-bold mb-2">Tautan Cepat</h5>
+                    <ul class="text-gray-400 dark:text-gray-600">
+                        <li><a href="#" class="hover:underline">Beranda</a></li>
+                        <li><a href="#" class="hover:underline">Fitur</a></li>
+                        <li><a href="#" class="hover:underline">Tentang Kami</a></li>
+                        <li><a href="#" class="hover:underline">Hubungi Kami</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-bold mb-2">Bantuan</h5>
+                    <ul class="text-gray-400 dark:text-gray-600">
+                        <li><a href="#" class="hover:underline">Pusat Bantuan</a></li>
+                        <li><a href="#" class="hover:underline">Dokumentasi</a></li>
+                        <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:underline">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-bold mb-2">Ikuti Kami</h5>
+                    <ul class="text-gray-400 dark:text-gray-600">
+                        <li><a href="#" class="hover:underline">Facebook</a></li>
+                        <li><a href="#" class="hover:underline">Twitter</a></li>
+                        <li><a href="#" class="hover:underline">Instagram</a></li>
+                        <li><a href="#" class="hover:underline">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="text-gray-400 dark:text-gray-600 mt-8">© 2024 ElainaBot. Design By Arifzyn.</p>
+        </div>
+    </main>
 </body>
-
-    </html>
+</html>
