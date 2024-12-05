@@ -35,9 +35,25 @@
         }
     </style>
     <script>
+        // Function to toggle the theme between light and dark mode
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
+            // Save the current theme in localStorage
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
         }
+
+        // Load the saved theme from localStorage
+        window.onload = function() {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        };
 
         function toggleAnswer(id) {
             const answer = document.getElementById(id);
