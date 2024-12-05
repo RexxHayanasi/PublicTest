@@ -34,38 +34,12 @@
             }
         }
     </style>
-    <script>
-        // Function to toggle the theme between light and dark mode
-        function toggleTheme() {
-            document.documentElement.classList.toggle('dark');
-            // Save the current theme in localStorage
-            if (document.documentElement.classList.contains('dark')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        }
-
-        // Load the saved theme from localStorage
-        window.onload = function() {
-            if (localStorage.getItem('theme') === 'dark') {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-        };
-
-        function toggleAnswer(id) {
-            const answer = document.getElementById(id);
-            answer.classList.toggle('hidden');
-            answer.classList.toggle('slide-down');
-        }
-    </script>
 </head>
 <body class="bg-gray-900 text-white dark:bg-white dark:text-black fade-in">
     <header class="flex justify-between items-center p-4 bg-gray-800 dark:bg-gray-200">
         <h1 class="text-xl font-bold">ElainaBot</h1>
         <div class="flex items-center space-x-4">
+            <!-- Tombol untuk mengubah tema -->
             <button onclick="toggleTheme()" class="bg-gray-700 p-2 rounded-full dark:bg-gray-300">
                 <i class="fas fa-toggle-on text-blue-500 dark:text-gray-700"></i>
             </button>
@@ -182,6 +156,31 @@
             </div>
             <p class="text-gray-400 dark:text-gray-600 mt-8">© 2024 ElainaBot. Design By Arifzyn.</p>
         </div>
-    </main>
+   <main>
+          <script>
+        // Fungsi untuk mengganti tema antara gelap dan terang
+        function toggleTheme() {
+            const isDarkMode = document.documentElement.classList.toggle('dark');
+            // Menyimpan tema yang dipilih di localStorage
+            if (isDarkMode) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // Menyimpan tema yang dipilih dan memuatnya saat halaman dimuat
+        window.onload = function() {
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            // Log untuk debugging
+            console.log('Current Theme:', storedTheme);
+        };
+          </script> 
+   </main> 
 </body>
 </html>
