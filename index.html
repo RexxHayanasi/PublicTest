@@ -128,59 +128,50 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                 <div>
                     <h5 class="text-lg font-bold mb-2">Tautan Cepat</h5>
-                    <ul class="text-gray-400 dark:text-gray-600">
-                        <li><a href="#" class="hover:underline">Beranda</a></li>
-                        <li><a href="#" class="hover:underline">Fitur</a></li>
-                        <li><a href="#" class="hover:underline">Tentang Kami</a></li>
-                        <li><a href="#" class="hover:underline">Hubungi Kami</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-lg font-bold mb-2">Bantuan</h5>
-                    <ul class="text-gray-400 dark:text-gray-600">
-                        <li><a href="#" class="hover:underline">Pusat Bantuan</a></li>
-                        <li><a href="#" class="hover:underline">Dokumentasi</a></li>
-                        <li><a href="#" class="hover:underline">Kebijakan Privasi</a></li>
-                        <li><a href="#" class="hover:underline">Syarat & Ketentuan</a></li>
+                                        <ul class="text-gray-400 dark:text-gray-600">
+                        <li><a href="https://wa.me/4917269716928" class="hover:text-blue-500 transition duration-300">Hubungi Kami</a></li>
+                        <li><a href="https://whatsapp.com/channel/0029VapYyKEGufIpsd3Rja2C" class="hover:text-blue-500 transition duration-300">Saluran WhatsApp</a></li>
+                        <li><a href="https://elainabot.xyz" class="hover:text-blue-500 transition duration-300">Kunjungi Situs</a></li>
                     </ul>
                 </div>
                 <div>
                     <h5 class="text-lg font-bold mb-2">Ikuti Kami</h5>
                     <ul class="text-gray-400 dark:text-gray-600">
-                        <li><a href="#" class="hover:underline">Facebook</a></li>
-                        <li><a href="#" class="hover:underline">Twitter</a></li>
-                        <li><a href="#" class="hover:underline">Instagram</a></li>
-                        <li><a href="#" class="hover:underline">LinkedIn</a></li>
+                        <li><a href="https://twitter.com/elainabot" class="hover:text-blue-500 transition duration-300">Twitter</a></li>
+                        <li><a href="https://instagram.com/elainabot" class="hover:text-blue-500 transition duration-300">Instagram</a></li>
+                        <li><a href="https://facebook.com/elainabot" class="hover:text-blue-500 transition duration-300">Facebook</a></li>
                     </ul>
                 </div>
+                <div>
+                    <h5 class="text-lg font-bold mb-2">Kontak</h5>
+                    <p class="text-gray-400 dark:text-gray-600">Email: support@elainabot.xyz</p>
+                    <p class="text-gray-400 dark:text-gray-600">Phone: +49 172 697 16928</p>
+                </div>
             </div>
-            <p class="text-gray-400 dark:text-gray-600 mt-8">© 2024 ElainaBot. Design By Arifzyn.</p>
         </div>
-   <main>
-          <script>
-        // Fungsi untuk mengganti tema antara gelap dan terang
+    </main>
+    <footer class="bg-gray-800 text-center text-gray-400 dark:bg-gray-200 dark:text-gray-600 py-6 mt-12">
+        <p>&copy; 2024 ElainaBot. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Fungsi untuk mengubah tema
         function toggleTheme() {
-            const isDarkMode = document.documentElement.classList.toggle('dark');
-            // Menyimpan tema yang dipilih di localStorage
-            if (isDarkMode) {
-                localStorage.setItem('theme', 'dark');
+            const body = document.body;
+            body.classList.toggle('dark');
+            const icon = document.querySelector('.fa-toggle-on');
+            if (body.classList.contains('dark')) {
+                icon.classList.replace('fa-toggle-on', 'fa-toggle-off');
             } else {
-                localStorage.setItem('theme', 'light');
+                icon.classList.replace('fa-toggle-off', 'fa-toggle-on');
             }
         }
 
-        // Menyimpan tema yang dipilih dan memuatnya saat halaman dimuat
-        window.onload = function() {
-            const storedTheme = localStorage.getItem('theme');
-            if (storedTheme === 'dark') {
-                document.documentElement.classList.add('dark');
-            } else {
-                document.documentElement.classList.remove('dark');
-            }
-            // Log untuk debugging
-            console.log('Current Theme:', storedTheme);
-        };
-          </script> 
-   </main> 
+        // Fungsi untuk menampilkan dan menyembunyikan jawaban FAQ
+        function toggleAnswer(faqId) {
+            const faqElement = document.getElementById(faqId);
+            faqElement.classList.toggle('hidden');
+        }
+    </script>
 </body>
 </html>
