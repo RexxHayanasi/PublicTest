@@ -3,6 +3,10 @@
     {
       "source": "/infodeveloper",
       "destination": "/h.html"
+    },
+    {
+      "source": "/pricing",
+      "destination": "/pricing.html"
     }
   ]
 }
